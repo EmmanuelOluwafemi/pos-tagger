@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Tagging</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Part Of Speech Tagging By Group 4</h1>
+        <textarea id="message"></textarea>
+        <button id="btn">Submit</button>
+
+        <div id="output" class="output"></div>
+
+    </div>
+    
+    <!-- Names of Group members -->
+    <p class="nameTitle">Names Of Group Members</p>
+    <ul class="membersName">
+       <li>Yusuf Emmanuel - CPE/16/1050</li> 
+       <li>Obijole Oluwasegun Micheal - CPE/16/1033</li> 
+       <li>Dada Kehinde Sunday - CPE/17/2003</li> 
+       <li>Ogonna Joan - CPE/16/1028</li> 
+       <li>Akingbade Juwon Emmanuel - CPE/16/1011</li> 
+       <li>Eegunranti Emmanuel Adetunji - CPE/16/1019</li>
+       <li>Emuejevoke Faithful Ochuko - CPE/16/1020</li>
+       <li>Sanni Victor Olarenwaju - CPE/16/1046</li>
+       <li>Awokoja Olawale Davidson - CPE/16/1017</li>
+       <li>Ezennia Chukwudaju Vincent - CPE/16/1022</li>
+       <li>Williams Samson Oluwatobi - CPE/16/1049</li>
+       <li>Arawole Oluwatobiloba Oluwakayode - CPE/16/1014</li>
+    </ul>
+
+    <script src="./main.min.js"></script>
+    <script>
+        let btn = document.getElementById('btn');
+        let output = document.getElementById('output');
+        
+        // Create an onclick event to submit the text
+        btn.addEventListener('click', () => {
+            // get the value from input box;
+            let message = document.getElementById('message').value;
+            let docx = nlp(message)
+
+            // Get the Tags from the message
+            let tags = docx.sentences().terms().out('tags');
+
+            tags.map(item => {
+                let titles = Object.keys(item);
+                let element = `
+                    <div class="tagContainer">
+                        <span class="text">${Object.keys(item)} <span class="dash">----</spam> </span>
+                        <span class="tags">
+                            <span>${Object.values(item)}</span>
+                        </span>
+                    </div>
+                `;
+
+                output.innerHTML += element;
+            })
+
+        })
+
+    </script>
+</body>
+</html>
