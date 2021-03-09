@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POS Tagging</title>
+    <title>N-gram</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Part Of Speech Tagging By Group 4</h1>
+        <h1>N-gram By Group 4</h1>
+        <select id="selectOption">
+            <option value="unigram">Uni-gram</option>
+            <option value="bigram">By-gram</option>
+            <option value="trigram">Tri-gram</option>
+        </select>
         <textarea id="message"></textarea>
         <button id="btn">Submit</button>
 
@@ -33,36 +38,6 @@
        <li>Williams Samson Oluwatobi - CPE/16/1049</li>
     </ul>
 
-    <script src="./main.min.js"></script>
-    <script>
-        let btn = document.getElementById('btn');
-        let output = document.getElementById('output');
-        
-        // Create an onclick event to submit the text
-        btn.addEventListener('click', () => {
-            // get the value from input box;
-            let message = document.getElementById('message').value;
-            let docx = nlp(message)
-
-            // Get the Tags from the message
-            let tags = docx.sentences().terms().out('tags');
-
-            tags.map(item => {
-                let titles = Object.keys(item);
-                let element = `
-                    <div class="tagContainer">
-                        <span class="text">${Object.keys(item)} <span class="dash">----</spam> </span>
-                        <span class="tags">
-                            <span>${Object.values(item)}</span>
-                        </span>
-                    </div>
-                `;
-
-                output.innerHTML += element;
-            })
-
-        })
-
-    </script>
+    <script src="./main.js"></script>
 </body>
 </html>

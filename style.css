@@ -44,13 +44,23 @@ body {
     }
 }
 
+select {
+    max-width: 600px;
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border: none;
+    padding: 0.4rem 1rem;
+    margin-top: 2.5rem;
+}
+
 .container textarea {
     width: 100%;
     max-width: 600px;
     min-height: 70px;
     outline: none;
     border: none;
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     padding: 1rem;
 }
 
@@ -88,16 +98,9 @@ body {
 }
 
 .container .output .tagContainer .text {
-    font-weight: 700;
-    color: #F2E74B;
-    margin-right: .5rem;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-}
-
-.container .output .tagContainer .text .dash {
-    margin-left: 4px;
+    font-weight: 400;
     color: #222;
+    font-size: 1rem;
 }
 
 .nameTitle {
